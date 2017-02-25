@@ -34,4 +34,6 @@ class kuzminnal : public lab
 
   virtual void lab8();
 
+  virtual std::string get_name();
+
 };

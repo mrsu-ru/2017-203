@@ -131,3 +131,13 @@ void kuzminnal::lab7()
 {
 
 }
+
+void kuzminnal::lab8()
+{
+
+}
+
+std::string kuzminnal::get_name()
+{
+  return std::string("Кузьмин Никита Александрович");
+}
