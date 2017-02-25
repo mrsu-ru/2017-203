@@ -2,6 +2,7 @@
 #include <cstring>
 #include "lab.h"
 #include <iostream>
+#include "hramovaia.h"
 
 void print_usage(char* name);
 
@@ -14,10 +15,10 @@ int main(int argc, char** argv)
   }
 
   lab *l = NULL;
-/*  if (strcmp(argv[1], "arkunovil") == 0) {
-    l = new ivanovii();
+  if (strcmp(argv[1], "hramovaia") == 0) {
+    l = new hramovaia();
   } else
-   */{
+  {
     print_usage(argv[0]);
     return 0;
   }
