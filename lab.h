@@ -15,8 +15,8 @@ public:
   virtual ~lab();
 protected:
   int N;
-  double **A, *b, *x;
-  double **A_or, *b_or;
+  double **A = NULL, *b = NULL, *x = NULL;
+  double **A_or = NULL, *b_or = NULL;
 
   virtual std::string get_name();
 
@@ -49,5 +49,5 @@ protected:
    * Один из градиентных методов
    */
    virtual void lab7() = 0;
-   virtual void lab8() {};
+   virtual void lab8() = 0;
 };
