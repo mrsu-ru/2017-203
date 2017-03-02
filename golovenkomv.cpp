@@ -1,4 +1,4 @@
-#include "golovenkomv.h"
+﻿#include "golovenkomv.h"
 
 /**
  * Метод Гаусса
@@ -6,34 +6,34 @@
 void golovenkomv::lab1()
 {
     double koif;
-    for(int i=0;i<n;i++)
+    for(int i=0;i<N;i++)
         {
-            koif=a[i][i];
-            for(int l=i;l<n;l++)
+            koif=A[i][i];
+            for(int l=i;l<N;l++)
             {
-                a[i][l]=a[i][l]/koif;
+                A[i][l]=A[i][l]/koif;
             }
             b[i]=b[i]/koif;
-            for(int j=i+1;j<n;j++)
+            for(int j=i+1;j<N;j++)
             {
-                koif=a[j][i];
-                for(int k=i;k<n;k++)
+                koif=A[j][i];
+                for(int k=i;k<N;k++)
                 {
-                    a[j][k]=a[j][k]-a[i][k]*koif;
+                    A[j][k]=A[j][k]-A[i][k]*koif;
                 }
                 b[j]=b[j]-b[i]*koif;
             }
         }
-    x[n-1]=b[n-1];
-    x[n-2]=b[n-2] - a[n-2][n-1]*x[n-1];
-    for(int i=n-3;i>=0;i--)
+    x[N-1]=b[N-1];
+    x[N-2]=b[N-2] - A[N-2][N-1]*x[N-1];
+    for(int i=N-3;i>=0;i--)
     {
         double sum=0;
-        for(int j=i+1;j<n;j++)
+        for(int j=i+1;j<N;j++)
         {
-            sum+=a[i][j]*x[i];
+            sum+=A[i][j]*x[i];
         }
-        x[i]=(b[i]-sum)/a[i][i];
+        x[i]=(b[i]-sum)/A[i][i];
     }
 }
 
@@ -44,52 +44,52 @@ void golovenkomv::lab1()
 void golovenkomv::lab2()
 {
 double koif;
-    for(int i=0;i<n;i++)
+    for(int i=0;i<N;i++)
     {
 
 
         int indexm=i;
-        double maxel=abs(a[i][i]);
-        for(int mi=mi+1;mi<n;mi++)
+        double maxel=abs(A[i][i]);
+        for(int mi=mi+1;mi<N;mi++)
         {
 
-            if( abs(a[mi][i])>maxel )
+            if( abs(A[mi][i])>maxel )
             {
-                maxel=abs(a[mi][i]);
+                maxel=abs(A[mi][i]);
                 indexm=mi;
             }
         }
-        for(int indexswap=0;indexswap<n;indexswap++)
+        for(int indexswap=0;indexswap<N;indexswap++)
         {
-            swap(a[i][indexswap],a[indexm][indexswap]);
+            swap(A[i][indexswap],A[indexm][indexswap]);
         }
 
-            koif=a[i][i];
-            for(int l=i;l<n;l++)
+            koif=A[i][i];
+            for(int l=i;l<N;l++)
             {
-                a[i][l]=a[i][l]/koif;
+                A[i][l]=A[i][l]/koif;
             }
             b[i]=b[i]/koif;
-            for(int j=i+1;j<n;j++)
+            for(int j=i+1;j<N;j++)
             {
-                koif=a[j][i];
-                for(int k=i;k<n;k++)
+                koif=A[j][i];
+                for(int k=i;k<N;k++)
                 {
-                    a[j][k]=a[j][k]-a[i][k]*koif;
+                    A[j][k]=A[j][k]-A[i][k]*koif;
                 }
                 b[j]=b[j]-b[i]*koif;
             }
         }
-    x[n-1]=b[n-1];
-    x[n-2]=b[n-2] - a[n-2][n-1]*x[n-1];
-    for(int i=n-3;i>=0;i--)
+    x[N-1]=b[N-1];
+    x[N-2]=b[N-2] - A[N-2][N-1]*x[N-1];
+    for(int i=N-3;i>=0;i--)
     {
         double sum=0;
-        for(int j=i+1;j<n;j++)
+        for(int j=i+1;j<N;j++)
         {
-            sum+=a[i][j]*x[i];
+            sum+=A[i][j]*x[i];
         }
-        x[i]=(b[i]-sum)/a[i][i];
+        x[i]=(b[i]-sum)/A[i][i];
     }
 
 
