@@ -8,6 +8,7 @@
 #include "hramovaia.h"
 #include "kidyaevvs.h"
 #include "klyushenkovaaa.h"
+#include "kurbatovdi.h"
 #include "kuzminnal.h"
 #include "sorokinai.h"
 #include "zhuravlevama.h"
@@ -43,6 +44,9 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1], "klyushenkovaaa") == 0) {
     l = new klyushenkovaa();
+  }
+  else if (strcmp(argv[1], "kurbatovdi") == 0) {
+    l = new kurbatovdi();
   }
   else if (strcmp(argv[1], "sorokinai") == 0) {
     l = new sorokinai();
