@@ -2,8 +2,10 @@
 #include <cstring>
 #include "lab.h"
 #include <iostream>
+#include "geroevvn.h"
 #include "hramovaia.h"
 #include "kuzminnal.h"
+#include "sorokinai.h"
 
 void print_usage(char* name);
 
@@ -21,6 +23,12 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1], "kuzminnal") == 0) {
     l = new kuzminnal();
+  }
+  else if (strcmp(argv[1], "geroevvn") == 0) {
+    l = new geroevvn();
+  }
+  else if (strcmp(argv[1], "sorokinai") == 0) {
+    l = new sorokinai();
   }
   else
   {

@@ -3,8 +3,10 @@ CFLAGS=-c -Wall -g
 LDFLAGS= -g
 SOURCES= \
         main.cpp \
+				geroevvn.cpp \
 				hramovaia.cpp \
 				kuzminnal.cpp \
+				sorokinai.cpp \
 				lab.cpp
 
 
