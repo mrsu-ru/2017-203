@@ -7,6 +7,7 @@ SOURCES= \
 				golovenkomv.cpp \
 				gorbylevako.cpp \
 				hramovaia.cpp \
+				kidyaevvs.cpp \
 				klyushenkovaaa.cpp \
 				kuzminnal.cpp \
 				sorokinai.cpp \
