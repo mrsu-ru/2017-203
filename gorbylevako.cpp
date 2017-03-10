@@ -116,3 +116,11 @@ void gorbylevako::lab7()
 {
 
 }
+
+/**
+ * Один из градиентных методов
+ */
+void gorbylevako::lab8()
+{
+
+}

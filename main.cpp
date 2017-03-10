@@ -4,6 +4,7 @@
 #include <iostream>
 #include "geroevvn.h"
 #include "golovenkomv.h"
+#include "gorbylevako.h"
 #include "hramovaia.h"
 #include "kuzminnal.h"
 #include "sorokinai.h"
@@ -30,6 +31,9 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1], "golovenkomv") == 0) {
     l = new golovenkomv();
+  }
+  else if (strcmp(argv[1], "gorbylevako") == 0) {
+    l = new gorbylevako();
   }
   else if (strcmp(argv[1], "sorokinai") == 0) {
     l = new sorokinai();
