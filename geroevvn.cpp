@@ -143,3 +143,15 @@ void geroevvn::lab7()
 {
 
 }
+
+/**
+ * Один из градиентных методов
+ */
+void geroevvn::lab8()
+{
+
+}
+
+std::string geroevvn::get_name() {
+  return std::string("Geroev V.N.");
+}
