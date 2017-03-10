@@ -4,6 +4,7 @@ LDFLAGS= -g
 SOURCES= \
         main.cpp \
 				geroevvn.cpp \
+				golovenkomv.cpp \
 				hramovaia.cpp \
 				kuzminnal.cpp \
 				sorokinai.cpp \
