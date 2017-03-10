@@ -4,6 +4,7 @@
 #include <iostream>
 #include "hramovaia.h"
 #include "kuzminnal.h"
+#include "geroevvn.h"
 
 void print_usage(char* name);
 
@@ -21,6 +22,9 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1], "kuzminnal") == 0) {
     l = new kuzminnal();
+  }
+  else if (strcmp(argv[1], "geroevvn") == 0) {
+    l = new geroevvn();
   }
   else
   {
