@@ -6,6 +6,7 @@ SOURCES= \
 				geroevvn.cpp \
 				hramovaia.cpp \
 				kuzminnal.cpp \
+				sorokinai.cpp \
 				lab.cpp
 
 
