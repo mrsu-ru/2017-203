@@ -141,3 +141,13 @@ void kidyaevvs::lab7()
 {
 
 }
+
+
+
+/**
+ * Один из градиентных методов
+ */
+void kidyaevvs::lab8()
+{
+
+}
