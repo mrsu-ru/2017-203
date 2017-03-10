@@ -5,6 +5,7 @@ SOURCES= \
         main.cpp \
 				geroevvn.cpp \
 				golovenkomv.cpp \
+				gorbylevako.cpp \
 				hramovaia.cpp \
 				kuzminnal.cpp \
 				sorokinai.cpp \
