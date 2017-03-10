@@ -5,10 +5,7 @@
  */
 void sorokinai::lab1()
 {
-	 for (int i = 0;  i < N; i++)
-	  for (int j = 0;  j <N; j++)  {
-		  fin>>A[i][j];
-	  }
+
 
 	    double tt = 0; //нужен для избавления от соотв xi
     for (int k=0; k<N-1; k++)
@@ -51,7 +48,7 @@ void  sorokinai::lab2()
     {
         maks = k;
         for (int i=k+1; i<N; i++)
-			if(abs(A[i][k]) > abs(A[maks][k])) maks = i;//проверка 
+			if(abs(A[i][k]) > abs(A[maks][k]))* maks = i;//проверка 
         std::swap(A[maks], A[k]);
         std::swap(b[maks], b[k]);
 
