@@ -9,6 +9,7 @@ SOURCES= \
 				hramovaia.cpp \
 				kidyaevvs.cpp \
 				klyushenkovaaa.cpp \
+				kurbatovdi.cpp \
 				kuzminnal.cpp \
 				sorokinai.cpp \
 				zhuravlevama.cpp \
