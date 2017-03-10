@@ -61,7 +61,7 @@ double koif;
         }
         for(int indexswap=0;indexswap<N;indexswap++)
         {
-            swap(A[i][indexswap],A[indexm][indexswap]);
+            std::swap(A[i][indexswap],A[indexm][indexswap]);
         }
 
             koif=A[i][i];
@@ -141,6 +141,15 @@ void golovenkomv::lab6()
  * Один из градиентных методов
  */
 void golovenkomv::lab7()
+{
+
+}
+
+
+/**
+ * Один из градиентных методов
+ */
+void golovenkomv::lab8()
 {
 
 }
