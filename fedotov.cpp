@@ -11,8 +11,8 @@ void fedotov::lab1()
 		for (int j = 0; j < N; j++)
 		{
 			A[i][j] /= A[i][i];
-			b[k] /= A[i][i];
 		}
+		b[i] /= A[i][i];
 		for (int k = i+1; k < N; k++)
 		{
 			for (int z = 0; z < N; z++)
@@ -24,7 +24,7 @@ void fedotov::lab1()
 	}
 
 	/*обратный ход*/
-	for (int j = N - 1; j > 0; j--) 
+	for (int j = N - 1; j > 0; j--)
 	{
 		for (int i = j - 1; i >= 0; i--)
 		{
@@ -41,11 +41,11 @@ void fedotov::lab1()
 void fedotov::lab2()
 {
 
-	/*прямой ход 
+	/*прямой ход
 	найдем максимальный элемент по модулю , поменяюм эти строки , а дальше по Гаусу
 	*/
 	for (int i = 0; i < N; i++)
-	{	
+	{
 		int maxel = i;
 		for (int k = i + 1; k<N; i++)
 			if (abs(A[k][i]) > abs(A[maxel][i]))
