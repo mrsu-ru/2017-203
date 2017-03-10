@@ -11,6 +11,7 @@ SOURCES= \
 				klyushenkovaaa.cpp \
 				kurbatovdi.cpp \
 				kuzminnal.cpp \
+				mulichevaes.cpp \
 				sorokinai.cpp \
 				zhuravlevama.cpp \
 				lab.cpp
