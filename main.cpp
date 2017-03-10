@@ -10,6 +10,7 @@
 #include "klyushenkovaaa.h"
 #include "kuzminnal.h"
 #include "sorokinai.h"
+#include "zhuravlevama.h"
 
 void print_usage(char* name);
 
@@ -45,6 +46,9 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1], "sorokinai") == 0) {
     l = new sorokinai();
+  }
+  else if (strcmp(argv[1], "zhuravlevama") == 0) {
+    l = new zhuravlevama();
   }
   else
   {
