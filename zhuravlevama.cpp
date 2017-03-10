@@ -16,7 +16,7 @@ void zhuravlevama::lab1()
      for(int i=m+1;i<N;i++)
         {
          obrv0=A[i][m];
-         for(int j=0;j<n;j++)
+         for(int j=0;j<N;j++)
              A[i][j]=A[i][j]-obrv0*A[m][j];
          b[i]=b[i]-obrv0*b[m];
           }
@@ -65,7 +65,7 @@ void zhuravlevama::lab2()
      for(int i=m+1;i<N;i++)
         {
          obrv0=A[i][m];
-         for(int j=0;j<n;j++)
+         for(int j=0;j<N;j++)
              A[i][j]=A[i][j]-obrv0*A[m][j];
          b[i]=b[i]-obrv0*b[m];
           }
@@ -87,7 +87,7 @@ void zhuravlevama::lab2()
 
 
 
-}
+
 
 
 
@@ -135,6 +135,16 @@ void zhuravlevama::lab6()
  * Один из градиентных методов
  */
 void zhuravlevama::lab7()
+{
+
+}
+
+
+
+/**
+ * Один из градиентных методов
+ */
+void zhuravlevama::lab8()
 {
 
 }
