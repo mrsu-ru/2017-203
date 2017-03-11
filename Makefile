@@ -3,8 +3,17 @@ CFLAGS=-c -Wall -g
 LDFLAGS= -g
 SOURCES= \
         main.cpp \
+				geroevvn.cpp \
+				golovenkomv.cpp \
+				gorbylevako.cpp \
 				hramovaia.cpp \
+				kidyaevvs.cpp \
+				klyushenkovaaa.cpp \
+				kurbatovdi.cpp \
 				kuzminnal.cpp \
+				mulichevaes.cpp \
+				sorokinai.cpp \
+				zhuravlevama.cpp \
 				lab.cpp
 
 

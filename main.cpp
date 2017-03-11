@@ -2,8 +2,17 @@
 #include <cstring>
 #include "lab.h"
 #include <iostream>
+#include "geroevvn.h"
+#include "golovenkomv.h"
+#include "gorbylevako.h"
 #include "hramovaia.h"
+#include "kidyaevvs.h"
+#include "klyushenkovaaa.h"
+#include "kurbatovdi.h"
 #include "kuzminnal.h"
+#include "mulichevaes.h"
+#include "sorokinai.h"
+#include "zhuravlevama.h"
 
 void print_usage(char* name);
 
@@ -21,6 +30,33 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1], "kuzminnal") == 0) {
     l = new kuzminnal();
+  }
+  else if (strcmp(argv[1], "geroevvn") == 0) {
+    l = new geroevvn();
+  }
+  else if (strcmp(argv[1], "golovenkomv") == 0) {
+    l = new golovenkomv();
+  }
+  else if (strcmp(argv[1], "gorbylevako") == 0) {
+    l = new gorbylevako();
+  }
+  else if (strcmp(argv[1], "kidyaevvs") == 0) {
+    l = new kidyaevvs();
+  }
+  else if (strcmp(argv[1], "klyushenkovaaa") == 0) {
+    l = new klyushenkovaa();
+  }
+  else if (strcmp(argv[1], "kurbatovdi") == 0) {
+    l = new kurbatovdi();
+  }
+  else if (strcmp(argv[1], "mulichevaes") == 0) {
+    l = new mulichevaes();
+  }
+  else if (strcmp(argv[1], "sorokinai") == 0) {
+    l = new sorokinai();
+  }
+  else if (strcmp(argv[1], "zhuravlevama") == 0) {
+    l = new zhuravlevama();
   }
   else
   {
