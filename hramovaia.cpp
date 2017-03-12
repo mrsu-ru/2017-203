@@ -121,7 +121,31 @@ void hramovaia::lab3()
  */
 void hramovaia::lab4()
 {
+    double *alpha = new double[N];
+    double *beta = new double[N];
 
+    //определяем прогоночные коэффициенты
+    alpha[1] = -A[0][1] / A[0][0];
+    beta[1] = b[0] / A[0][0];
+    for(int i=2; i<N; i++)
+    {
+        double a = A[i-1][i-2]; //эл-т под диагональю
+        double c = -A[i-1][i-1]; //эл-т диагонали
+        double e = A[i-1][i]; //эл-т над диагональю
+
+        alpha[i] = e / (c - a * alpha[i-1]);
+        beta[i] = (a * beta[i-1] - b[i-1]) / (c - a * alpha[i-1]);
+    }
+
+    x[N-1] = (A[N-1][N-2] * beta[N-1] - b[N-1]) / (-A[N-1][N-2] - alpha[N-1] * A[N-1][N-2]);
+
+    for(int i=N-2; i>=0; i--)
+    {
+        x[i] = alpha[i+1] * x[i+1] + beta[i+1];
+    }
+
+    delete [] alpha;
+    delete [] beta;
 }
 
 
