@@ -31,7 +31,7 @@ class korytinsi : public lab
    * Один из градиентных методов
    */
   virtual void lab7();
-  
+
   virtual void lab8();
-  
+
 };

@@ -5,15 +5,18 @@
  */
 void korytinsi::lab1()
 {
-	double *x, max;
+double *x, max;
   int k;
   x = new double[N];
   k = 0;
-  while (k < N)
+
+
+
+while (k < N)
    {
 // Нормализация уравнений
     for (int i = k; i < N; i++) {
-      double temp = A[i][k];
+      double temp = A[k][k];
        for (int j = 0; j < N; j++) {
         A[i][j] = A[i][j] / temp;
       }
@@ -22,19 +25,22 @@ void korytinsi::lab1()
        continue; // уравнение не вычитаем сам из себя само из себя
       for (int j = 0; j < N; j++) {
         A[i][j] = A[i][j] - A[k][j];
+
       }
-      b[i] = b[i] - b[k];
+     b[i] = b[i] - x[k];
     }
     k++;
   }
   // обратная подстановка
-  for (k = N - 1; k >= 0; k--) {
-    x[k] = b[k];
-    for (int i = 0; i < k; i++) {
-      b[i] = b[i] - A[i][k] * x[k];
-    }
+  for (k = N - 1; k >=0; k--) {
+  x[k] = b[k];
+    for (int i = k-1; i >=0; i--) {
+       double temp=A[i][k];
+            for (int j=0; j<N; j++)
+            A[i][j]=A[k][j]*temp+A[i][j];
+      b[i]=b[k]*temp-b[i];
+}
   }
-  
 }
 
 
@@ -43,9 +49,9 @@ void korytinsi::lab1()
  */
 void korytinsi::lab2()
 {
-double *x, max;
+ double *x, max;
   int k, index;
-  const double eps = 0.000001;  // точность
+ const double eps = 0.000000000001;  // точность
   x = new double[N];
   k = 0;
   while (k < N)
@@ -72,7 +78,9 @@ double *x, max;
   // Нормализация уравнений
     for (int i = k; i < N; i++) {
       double temp = A[i][k];
-     for (int j = 0; j < N; j++) {
+      if (abs(temp) < eps)
+      continue; // для нулевого коэффициента пропускаем
+      for (int j = 0; j < N; j++) {
         A[i][j] = A[i][j] / temp;
       }
       b[i] = b[i] / temp;
@@ -86,11 +94,14 @@ double *x, max;
     k++;
   }
   // обратная подстановка
-  for (k = N - 1; k >= 0; k--) {
-    x[k] = b[k];
-    for (int i = 0; i < k; i++) {
-      b[i] = b[i] - A[i][k] * x[k];
-    }
+  for (k = N - 1; k >=0; k--) {
+  x[k] = b[k];
+    for (int i = k-1; i >=0; i--) {
+       double temp=A[i][k];
+            for (int j=0; j<N; j++)
+           A[i][j]=A[k][j]*temp+A[i][j];
+      b[i]=b[k]*temp-b[i];
+}
   }
 }
 
