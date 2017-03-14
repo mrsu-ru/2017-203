@@ -154,7 +154,19 @@ void  sorokinai::lab3()
  */
 void  sorokinai::lab4()
 {
+	double* XX = new double[N];
+    double* B = new double[N];
 
+    XX[0] = A[0][1]/(-A[0][0]);
+    B[0] = b[0]/A[0][0];
+
+    for(int i=1; i<N; i++)
+    {
+       XX[i] = -A[i][i+1]/(A[i][i-1]*XX[i-1]+A[i][i]);//выражаем по формулам xi
+       B[i] = (b[i] - A[i][i-1]*B[i-1])/(A[i][i-1]*XX[i-1]+A[i][i]);//аналогично соотв bi
+    }
+
+    for(int i=N-1; i>=0; i--) x[i] = XX[i]*x[i+1]+B[i];
 }
 
 
