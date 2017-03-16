@@ -137,7 +137,7 @@ void hramovaia::lab4()
         beta[i] = (a * beta[i-1] - b[i-1]) / (c - a * alpha[i-1]);
     }
 
-    x[N-1] = (A[N-1][N-2] * beta[N-1] - b[N-1]) / (-A[N-1][N-2] - alpha[N-1] * A[N-1][N-2]);
+    x[N-1] = (A[N-1][N-2] * beta[N-1] - b[N-1]) / (-A[N-1][N-1] - alpha[N-1] * A[N-1][N-2]);
 
     for(int i=N-2; i>=0; i--)
     {
