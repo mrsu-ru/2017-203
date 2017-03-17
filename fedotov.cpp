@@ -5,21 +5,26 @@
  */
 void fedotov::lab1()
 {
+	double tmp = 1;
 	/*прямой ход*/
 	for (int i = 0; i < N; i++)
 	{
+		tmp = A[i][i];
+		b[i] /= tmp;
+
 		for (int j = 0; j < N; j++)
 		{
-			A[i][j] /= A[i][i];
+			A[i][j] /= tmp;
 		}
-		b[i] /= A[i][i];
-		for (int k = i+1; k < N; k++)
+
+		for (int k = i + 1; k < N; k++)
 		{
+			tmp = A[k][i];
 			for (int z = 0; z < N; z++)
 			{
-				A[k][z] -= A[i][z] * A[k][i];
+				A[k][z] -= A[i][z] * tmp;
 			}
-			b[k] -= b[i] * A[k][i];
+			b[k] -= b[i] * tmp;
 		}
 	}
 
@@ -29,7 +34,6 @@ void fedotov::lab1()
 		for (int i = j - 1; i >= 0; i--)
 		{
 			b[i] -= b[j] * A[i][j];
-			x[i] = b[i];
 		}
 	}
 }
@@ -41,31 +45,42 @@ void fedotov::lab1()
 void fedotov::lab2()
 {
 
-	/*прямой ход
+	/*прямой ход 
 	найдем максимальный элемент по модулю , поменяюм эти строки , а дальше по Гаусу
 	*/
+	int max_element_in_column = 0;
+	double tmp = 1;
 	for (int i = 0; i < N; i++)
 	{
-		int maxel = i;
-		for (int k = i + 1; k<N; i++)
-			if (abs(A[k][i]) > abs(A[maxel][i]))
-				maxel = k;
-		for (int k = 0; k < N; k++)
-			std::swap(A[i][k], A[maxel][k]);
-		std::swap(b[i], b[maxel]);
+
+		max_element_in_column = i;
+		for (int k = i + 1; k < N; i++)
+			if (abs(A[k][i]) > abs(A[max_element_in_column][i]))
+			{
+				max_element_in_column = k;
+				for (int k = 0; k < N; k++)
+				{
+					std::swap(A[i][k], A[max_element_in_column][k]);
+				}
+				std::swap(b[i], b[max_element_in_column]);
+			}
+
+		tmp = A[i][i];
+		b[i] /= tmp;
 
 		for (int j = 0; j < N; j++)
 		{
-			A[i][j] /= A[i][i];
-			b[k] /= A[i][i];
+			A[i][j] /= tmp;
 		}
+
 		for (int k = i + 1; k < N; k++)
 		{
+			tmp = A[k][i];
 			for (int z = 0; z < N; z++)
 			{
-				A[k][z] -= A[i][z] * A[k][i];
+				A[k][z] -= A[i][z] * tmp;
 			}
-			b[k] -= b[i] * A[k][i];
+			b[k] -= b[i] * tmp;
 		}
 	}
 
@@ -75,7 +90,6 @@ void fedotov::lab2()
 		for (int i = j - 1; i >= 0; i--)
 		{
 			b[i] -= b[j] * A[i][j];
-			x[i] = b[i];
 		}
 	}
 }
@@ -94,10 +108,39 @@ void fedotov::lab3()
 
 /**
  * Метод прогонки
+ *mathhelpplanet.com/static.php?p=chislennyye-metody-resheniya-slau
  */
 void fedotov::lab4()
-{
+{	
+	//P,Q - прогоночные коэффициенты
+	double *P = new double[N];
+	double *Q = new double[N];
 
+	double a;
+	double c;
+	double e;
+	
+	P[0] = -A[0][1] / A[0][0];
+	Q[0] = b[0] / A[0][0];
+
+	for (int i = 1; i < N; i++)
+	{
+		//a c e - нижн.,диаг.,верхн.
+		a = A[i][i - 1];
+		c = -A[i][i]; 
+		e = A[i][i + 1];
+
+		P[i] = e / (c - a * P[i - 1]);
+		Q[i] = (a * Q[i - 1] - b[i]) / (c - a * P[i - 1]);
+	}
+
+	for (int i = N - 1; i >= 0; i--)
+	{
+		x[i] = P[i] * x[i + 1] + Q[i];
+	}
+
+	delete[] P;
+	delete[] Q;
 }
 
 
