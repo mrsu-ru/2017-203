@@ -35,5 +35,6 @@ class geroevvn : public lab
   virtual void lab8();
   
   virtual std::string get_name();
-  
+   
+  int sign(double);
 };
