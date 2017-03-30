@@ -199,7 +199,43 @@ void kuzminnal::lab5()
  */
 void kuzminnal::lab6()
 {
-
+	double eps = 0.00001;
+    double* prev = new double[N];
+    double sum = 0;
+    bool IsContinue = true;
+    for(int i = 0; i < N; i++)
+    {
+        x[i] = 0;
+    }
+    do
+    {
+        for(int i = 0; i < N; i++)
+        {
+            prev[i] = x[i];
+        }
+        for(int i = 0; i < N; i++)
+        {
+            sum = 0;
+            for(int j = 0; j < i; j++)
+            {
+                sum += A[i][j] * x[j];
+            }
+            for(int j = i+1; j < N; j++)
+                sum += A[i][j] * prev[j];
+            x[i] = (b[i] - sum) / A[i][i];
+        }
+        IsContinue = true;
+        for(int i = 0; i < N; i++)
+        {
+            if(fabs(x[i] - prev[i]) < eps)
+            {
+                IsContinue = false;
+                break;
+            }
+        }
+    } while(IsContinue == true);
+    
+    delete[] p;
 }
 
 
