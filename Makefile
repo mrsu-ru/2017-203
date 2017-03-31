@@ -12,6 +12,7 @@ SOURCES= \
 				kurbatovdi.cpp \
 				kuzminnal.cpp \
 				mulichevaes.cpp \
+				polischukoa.cpp \
 				sorokinai.cpp \
 				zhuravlevama.cpp \
 				lab.cpp
