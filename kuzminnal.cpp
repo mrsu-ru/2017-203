@@ -189,7 +189,7 @@ void kuzminnal::lab4()
  */
 void kuzminnal::lab5()
 {
-	double eps = 0.00001;
+	double eps = 1.e-8;
 	double* next = new double[N];
 	double norm = 0;
 	for(int i = 0; i < N; i++)
@@ -230,7 +230,7 @@ void kuzminnal::lab5()
  */
 void kuzminnal::lab6()
 {
-	double eps = 0.00001;
+	double eps = 1.e-8;
     double* prev = new double[N];
     double sum = 0;
     double norm = 0;
