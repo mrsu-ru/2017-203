@@ -11,6 +11,7 @@
 #include "kurbatovdi.h"
 #include "kuzminnal.h"
 #include "mulichevaes.h"
+#include "polischukoa.h"
 #include "sorokinai.h"
 #include "zhuravlevama.h"
 
@@ -51,6 +52,9 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1], "mulichevaes") == 0) {
     l = new mulichevaes();
+  }
+  else if (strcmp(argv[1], "polischukoa") == 0) {
+    l = new polischukoa();
   }
   else if (strcmp(argv[1], "sorokinai") == 0) {
     l = new sorokinai();
