@@ -39,9 +39,8 @@ double d ;
 
     for(int i=0; i<N; i++)
         x[i]=b[i];
-    cout << "Hello world!" << endl;
-    return 0;
-}
+
+
 }
 
 
@@ -59,8 +58,8 @@ void ponkratovayv::lab2()
             if(abs(A[i][k]) > abs(A[maxx][k]))
                 maxx=i;
         for(int i=0;i<N;i++)
-            swap(A[k][i],A[maxx][i]);
-        swap(b[k],b[maxx]);
+            std::swap(A[k][i],A[maxx][i]);
+        std::swap(b[k],b[maxx]);
         d = A[k][k];
         for (int j = 0; j < N; j++)
             A[k][j] = A[k][j]/d;
@@ -89,8 +88,7 @@ void ponkratovayv::lab2()
 
     for(int i=0; i<N; i++)
         x[i]=b[i];
-    cout << "Hello world!" << endl;
-    return 0;
+
 }
 std::string ponkratovayv::get_name()
 {
@@ -141,7 +139,12 @@ void ponkratovayv::lab6()
 /**
  * Один из градиентных методов
  */
-void ponkratovayv::lab7()
-{
+ void ponkratovayv::lab7()
+ {
 
-}
+ }
+
+ void ponkratovayv::lab8()
+ {
+
+ }
