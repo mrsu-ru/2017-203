@@ -35,6 +35,7 @@ void fedotov::lab1()
 		{
 			b[i] -= b[j] * A[i][j];
 		}
+		x[j] = b[j];
 	}
 }
 
@@ -45,7 +46,7 @@ void fedotov::lab1()
 void fedotov::lab2()
 {
 
-	/*прямой ход 
+	/*прямой ход
 	найдем максимальный элемент по модулю , поменяюм эти строки , а дальше по Гаусу
 	*/
 	int max_element_in_column = 0;
@@ -54,7 +55,7 @@ void fedotov::lab2()
 	{
 
 		max_element_in_column = i;
-		for (int k = i + 1; k < N; i++)
+		for (int k = i + 1; k < N; k++)
 			if (abs(A[k][i]) > abs(A[max_element_in_column][i]))
 			{
 				max_element_in_column = k;
@@ -91,6 +92,7 @@ void fedotov::lab2()
 		{
 			b[i] -= b[j] * A[i][j];
 		}
+		x[j] = b[j];
 	}
 }
 
@@ -111,7 +113,7 @@ void fedotov::lab3()
  *mathhelpplanet.com/static.php?p=chislennyye-metody-resheniya-slau
  */
 void fedotov::lab4()
-{	
+{
 	//P,Q - прогоночные коэффициенты
 	double *P = new double[N];
 	double *Q = new double[N];
@@ -119,7 +121,7 @@ void fedotov::lab4()
 	double a;
 	double c;
 	double e;
-	
+
 	P[0] = -A[0][1] / A[0][0];
 	Q[0] = b[0] / A[0][0];
 
@@ -127,7 +129,7 @@ void fedotov::lab4()
 	{
 		//a c e - нижн.,диаг.,верхн.
 		a = A[i][i - 1];
-		c = -A[i][i]; 
+		c = -A[i][i];
 		e = A[i][i + 1];
 
 		P[i] = e / (c - a * P[i - 1]);
@@ -168,10 +170,16 @@ void fedotov::lab6()
 /**
  * Один из градиентных методов
  */
-void fedotov::lab7()
-{
+ void fedotov::lab7()
+ {
 
-}
+ }
+
+
+ void fedotov::lab8()
+ {
+
+ }
 
 
 
