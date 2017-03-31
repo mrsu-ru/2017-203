@@ -3,6 +3,7 @@ CFLAGS=-c -Wall -g
 LDFLAGS= -g
 SOURCES= \
         main.cpp \
+				fedotov.cpp \
 				geroevvn.cpp \
 				golovenkomv.cpp \
 				gorbylevako.cpp \
