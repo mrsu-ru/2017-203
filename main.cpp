@@ -2,6 +2,7 @@
 #include <cstring>
 #include "lab.h"
 #include <iostream>
+#include "fedotov.h"
 #include "geroevvn.h"
 #include "golovenkomv.h"
 #include "gorbylevako.h"
@@ -29,6 +30,9 @@ int main(int argc, char** argv)
   lab *l = NULL;
   if (strcmp(argv[1], "hramovaia") == 0) {
     l = new hramovaia();
+  }
+  else if (strcmp(argv[1], "fedotovvd") == 0) {
+    l = new fedotov();
   }
   else if (strcmp(argv[1], "kuzminnal") == 0) {
     l = new kuzminnal();
