@@ -15,6 +15,7 @@ SOURCES= \
 				kuzminnal.cpp \
 				mulichevaes.cpp \
 				polischukoa.cpp \
+				ponkratovayv.cpp \
 				sorokinai.cpp \
 				zhuravlevama.cpp \
 				lab.cpp
