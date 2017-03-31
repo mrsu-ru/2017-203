@@ -7,7 +7,7 @@ void KulyaginaTI::lab1() {
         for (int j = i + 1; j < N; j++) {
             temp = A[j][i]/A[i][i];
             if (temp != 0) {
-                for (int k = N; k >= i; k--)
+                for (int k = N-1; k >= i; k--)
                     A[j][k] -= temp * A[i][k];
                 b[j] -= temp*b[i];
             }
@@ -22,6 +22,7 @@ void KulyaginaTI::lab1() {
         x[i] /= A[i][i];
     }
 
+}
 
 void KulyaginaTI::lab2() {
 
@@ -53,7 +54,7 @@ void KulyaginaTI::lab2() {
         }
 
     }
-	
+
     x[N - 1] = b[N - 1];
     for (int i = N - 2; i >= 0; i--) {
         x[i] = b[i];
@@ -78,7 +79,7 @@ void KulyaginaTI::lab3()
     for (int i = 0; i < N; i++) {
         double sum = 0;
 
-        for (int j = 0; j < i; j++) { 
+        for (int j = 0; j < i; j++) {
             sum = 0;
             for (int k = 0; k < j; k++)
                 sum += L[i][k] * L[j][k];
@@ -120,7 +121,7 @@ void KulyaginaTI::lab3()
 
 void KulyaginaTI::lab4()
 {
-	  double *d, *c, *a; 
+	  double *d, *c, *a;
     d = new double[N];
     c = new double[N];
     a = new double[N];
@@ -130,12 +131,12 @@ void KulyaginaTI::lab4()
     d[N-1] = 0;
     for (int i = 0; i < N; ++i)
     {
-        if (i - 1 >= 0 && i - 1 < N) 
+        if (i - 1 >= 0 && i - 1 < N)
             d[i] = A[i-1][i];
         c[i] = A[i][i];
-        if (i + 1 >= 0 && i + 1 < N) 
+        if (i + 1 >= 0 && i + 1 < N)
             a[i] = A[i+1][i];
-    }  
+    }
 
     for (int i = 1; i < N; i++)
     {
@@ -147,9 +148,9 @@ void KulyaginaTI::lab4()
     x[N-1] = b[N-1]/c[N-1];
 
     for (int i = N - 2; i >= 0; i--)
-        x[i]=(b[i]-d[i]*x[i+1])/c[i];  
+        x[i]=(b[i]-d[i]*x[i+1])/c[i];
 
-    delete[] b, c, d;
+    delete[] a, c, d;
 
 }
 
@@ -177,5 +178,5 @@ void KulyaginaTI::lab8()
 
 std::string KulyaginaTI::get_name()
 {
-  return std::string("Кулягина Таисия");
+  return std::string("Kulyagina T.I.");
 }
