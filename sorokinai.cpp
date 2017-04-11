@@ -176,6 +176,34 @@ void  sorokinai::lab4()
  */
 void  sorokinai::lab5()
 {
+	  long double eps = 1.e-10;
+	long double* s = new long double[N];
+	long double razn;
+	int i,j,k;
+
+
+    for (int i = 0; i < N; i++){
+	
+        x[i]=0;
+    }
+
+    do {
+		for ( i = 0; i < N; i++)
+        {
+			s[i] = b[i];
+			for ( j = 0; j < N; j++)
+				if (i != j) p[i] -= A[i][j] * x[j];
+			s[i] /= A[i][i];
+		}
+        razn = fabs(x[0] - s[0]);
+		for (k = 0; k < N; k++)
+        {
+			if (fabs(x[k] - s[k]) > razn)
+				razn = fabs(x[k] - s[k]);
+			x[k] = s[k];
+		}
+	} while (razn> eps);
+	
 
 }
 
