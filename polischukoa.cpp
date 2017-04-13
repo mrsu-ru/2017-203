@@ -99,9 +99,78 @@ void polischukoa::lab2()
  */
 void polischukoa::lab3()
 {
+	int i, j, k;
+	double **L = new double *[N];
+	for(i = 0; i < N; i++)
+	{
+		L[i] = new double[N];
+	}
 
+	double *y = new double[N];
+	double s = 0;
+
+	//метод LU разложения 
+	for(i = 0; i < N; i++)//начальная инициализация массива
+	{
+		for(j = 0; j < N; j++)
+		{
+			L[i][j] = 0;
+		}
+	}
+
+	for(i = 0; i < N; i++)
+	{
+		for(k = 0; k < i; k++)
+		{
+			s += L[i][k] * L[i][k];
+		}
+				
+		L[i][i] = sqrt(A[i][i] - s);//вычесление диогонального элемента 
+		s = 0;
+
+		for(j = i + 1; j < N; j++)
+		{
+			for(k = 0; k < j - 1; k++)
+			{
+				s += L[j][k] * L[i][k];
+			}
+
+			L[j][i] = (A[j][i] - s) / L[i][i];//matr L
+			s = 0;
+		};
+	}
+
+	for(i = 0; i < N; i++)
+	{
+		x[i] = 0;
+		y[i] = 0;
+	}
+
+	y[0] = b[0] / L[0][0];
+
+	for(i = 1; i < N; i++)
+	{
+		for(j = 0; j < i; j++)
+		{
+			s += L[i][j] * y[j];
+		}
+
+		y[i] = (b[i] - s) / L[i][i];//L*y=b
+		s = 0;		
+	}
+
+	x[N - 1] = y[N - 1] / L[N - 1][N - 1];
+	for (i = N - 2; i >= 0; i--)
+	{
+		for (j = i + 1; j < N; j++)
+		{
+			s += L[j][i] * x[j];//L^(t)*x=y
+		}
+
+		x[i] = (y[i] - s) / L[i][i];//solution 
+		s = 0;
+	}
 }
-
 
 
 /**
@@ -146,10 +215,9 @@ void polischukoa::lab4()
  */
 void polischukoa::lab5()
 {
-	double eps = 1E-8;
+	double norm, eps = 1E-8;
 	double *P = new double[N];
-	double norm;
-
+	
     do 
 	{
         for (int i = 0; i < N; i++)
