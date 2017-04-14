@@ -195,10 +195,11 @@ void gorbylevako::lab5()
 		}
 
 		r = abs(x[0] - y[0]);
+
 		for(int i=0; i<N; i++)
 		{
-			if(abs(x[i]-y[i]) > r)
-				r = abs(x[i]-y[i]);
+			// if(abs(x[i]-y[i]) > r)
+				r = sqrt((x[i]-y[i])*(x[i]-y[i]));
 			x[i] = y[i];
 		}
 	} while(r >= eps);
@@ -242,7 +243,7 @@ void gorbylevako::lab6()
             x[i] = (b[i]-var)/A[i][i];
 
             for(int i=0; i<N; i++)
-				r += abs(x[i]-y[i]);
+				r += sqrt((x[i]-y[i])*(x[i]-y[i]));
 		}
     } while(r >= eps);
 
