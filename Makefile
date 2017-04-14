@@ -14,6 +14,7 @@ SOURCES= \
 				KulyaginTI.cpp \
 				kurbatovdi.cpp \
 				kuzminnal.cpp \
+				malkinaaa.cpp \
 				mulichevaes.cpp \
 				polischukoa.cpp \
 				ponkratovayv.cpp \
