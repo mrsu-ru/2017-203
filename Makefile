@@ -3,6 +3,7 @@ CFLAGS=-c -Wall -g
 LDFLAGS= -g
 SOURCES= \
         main.cpp \
+				gorbylevako.cpp \
 				lab.cpp
 
 
