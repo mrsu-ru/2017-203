@@ -175,6 +175,34 @@ void  sorokinai::lab4()
  */
 void  sorokinai::lab5()
 {
+	  long double eps = 1.e-10;
+	long double* s = new long double[N];
+	long double razn;
+	int i,j,k;
+
+
+    for (int i = 0; i < N; i++){
+	
+        x[i]=0;
+    }
+
+    do {
+		for ( i = 0; i < N; i++)
+        {
+			s[i] = b[i];
+			for ( j = 0; j < N; j++)
+				if (i != j) s[i] -= A[i][j] * x[j];
+			s[i] /= A[i][i];
+		}
+        razn = fabs(x[0] - s[0]);
+		for (k = 0; k < N; k++)
+        {
+			if (fabs(x[k] - s[k]) > razn)
+				razn = fabs(x[k] - s[k]);
+			x[k] = s[k];
+		}
+	} while (razn> eps);
+	
 
 }
 
@@ -185,6 +213,32 @@ void  sorokinai::lab5()
  */
 void  sorokinai::lab6()
 {
+	 long double eps = 1.e-10;
+    long double* y = new long double[N];
+    long double razn = 0;
+	long double var = 0;
+
+    for (int i = 0; i < N; i++)
+			x[i] = 0;
+	do
+	{
+		for (int i = 0; i < N; i++)
+			y[i] = x[i];
+
+		for (int i = 0; i < N; i++)
+		{
+			var = 0;
+            razn = 0;
+			for (int j = 0; j < i; j++)
+				var += (A[i][j] * x[j]);
+			for (int j = i + 1; j < N; j++)
+				var += (A[i][j] * x[j]);
+			x[i] = (b[i] - var) / A[i][i];
+			for (int i = 0; i < N; i++)
+				razn += (x[i] - y[i])*(x[i] - y[i]);
+		}
+	} while (razn >= eps);
+
 
 }
 
