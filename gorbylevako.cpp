@@ -75,62 +75,62 @@ void gorbylevako::lab2()
 void gorbylevako::lab3()
 {
 	double **S = new double *[N];
-	for (int i=0; i<N; i++)
+	for (int i = 0; i < N; i++)
 		S[i] = new double [N];
 
 	double *y = new double [N];
 
 
-	for (int i=0; i<N; i++)
+	for (int i = 0; i < N; i++)
 	{
 		x[i] = 0;
 		y[i] = 0;
-		for (int j=0; j<N; j++)
+		for (int j = 0; j < N; j++)
 		{
 			S[i][j] = 0;
 		}
 	}
 
-	double t=0;
-	for (int i=0; i<N; i++)  //Вычисляем нижнетреугольную матрицу S
+	double t = 0;
+	for (int i = 0; i < N; i++)  //Вычисляем нижнетреугольную матрицу S
 	{
-		for (int k=0; k <= i-1; k++)
+		for (int k = 0; k <= i-1; k++)
 			t += S[i][k]*S[i][k];
 
-		S[i][i] = sqrt(A[i][i]-t);
-		t=0;
-		for (int j=i+1; j<N; j++)
+		S[i][i] = sqrt(A[i][i] - t);
+		t = 0;
+		for (int j = i + 1; j < N; j++)
 			{
-				for (int k=0; k <= i-1; k++)
+				for (int k = 0; k <= i-1; k++)
 					t += S[i][k]*S[j][k];
 
-				S[j][i] = (A[i][j]-t)/S[i][i];
-				t=0;
+				S[j][i] = (A[i][j] - t)/S[i][i];
+				t = 0;
 			}
 	}
 
 
-	for (int i=0; i<N; i++) //Нахождение y[i] "обратным ходом" метода Гаусса
+	for (int i = 0; i < N; i++) //Нахождение y[i] "обратным ходом" метода Гаусса
 	{
-		t=0;
-		for (int j=0; j<i; j++)
+		t = 0;
+		for (int j = 0; j < i; j++)
 			t += S[i][j]*y[j];
 
-		y[i] = (b[i]-t)/S[i][i];
+		y[i] = (b[i] - t)/S[i][i];
 	}
 
 
-	for (int i=N-1; i >= 0; i--) //Нахождение х[i] "обратным ходом" метода Гаусса
+	for (int i = N-1; i >= 0; i--) //Нахождение х[i] "обратным ходом" метода Гаусса
 	{
-		t=0;
-		for (int j=i+1; j<N; j++)
+		t = 0;
+		for (int j = i + 1; j < N; j++)
 			t += S[j][i]*x[j];
 
-		x[i] = (y[i]-t)/S[i][i];
+		x[i] = (y[i] - t)/S[i][i];
 	}
 
     delete[] y;
-	for (int i=0; i<N; i++)
+	for (int i = 0; i < N; i++)
 		delete[] S[i];
 	delete[] S;
 }
@@ -161,7 +161,6 @@ void gorbylevako::lab4()
 	delete [] P;
 	delete [] Q;
 }
-
 
 
 
@@ -199,12 +198,10 @@ void gorbylevako::lab5()
 		for(int i=0; i<N; i++)
 		{
 			if(abs(x[i]-y[i]) > r)
-			{
 				r = abs(x[i]-y[i]);
-			}
 			x[i] = y[i];
 		}
-	} while(r > eps);
+	} while(r >= eps);
 	delete[] y;
 }
 
@@ -229,33 +226,28 @@ void gorbylevako::lab6()
     do
     {
         for(int i=0; i<N; i++)
-        {
             y[i] = x[i];
-        }
+
         for(int i=0; i<N; i++)
         {
             var = 0;
+            r = 0;
+
             for(int j=0; j<i; j++)
-            {
                 var += A[i][j]*x[j];
-            }
+
             for(int j=i+1; j<N; j++)
-                var += A[i][j]*y[j];
+                var += A[i][j]*x[j];
+
             x[i] = (b[i]-var)/A[i][i];
-        }
-		r = abs(x[0]-y[0]);
-        for(int i=0; i<N; i++)
-		{
-			if(abs(x[i]-y[i]) > r)
-			{
-				r = abs(x[i]-y[i]);
-			}
+
+            for(int i=0; i<N; i++)
+				r += abs(x[i]-y[i]);
 		}
-    } while(r > eps);
+    } while(r >= eps);
 
     delete[] y;
 }
-
 
 
 
