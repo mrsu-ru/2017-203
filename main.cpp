@@ -89,7 +89,7 @@ int main(int argc, char** argv)
   l->write_result();
   l->check_result();
 
-  delete l;
+  //delete l; // TODO: 
   return 0;
 }
 
