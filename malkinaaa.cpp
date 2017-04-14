@@ -86,3 +86,11 @@ void malkinaaa::lab7()
 {
 
 }
+
+/**
+ * Один из градиентных методов
+ */
+void malkinaaa::lab8()
+{
+
+}

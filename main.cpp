@@ -13,6 +13,7 @@
 #include "KulyaginaTI.h"
 #include "kurbatovdi.h"
 #include "kuzminnal.h"
+#include "malkinaaa.h"
 #include "mulichevaes.h"
 #include "polischukoa.h"
 #include "ponkratovayv.h"
@@ -63,6 +64,9 @@ int main(int argc, char** argv)
   else if (strcmp(argv[1], "kurbatovdi") == 0) {
     l = new kurbatovdi();
   }
+  else if (strcmp(argv[1], "malkinaaa") == 0) {
+    l = new malkinaaa();
+  }
   else if (strcmp(argv[1], "mulichevaes") == 0) {
     l = new mulichevaes();
   }
@@ -89,7 +93,7 @@ int main(int argc, char** argv)
   l->write_result();
   l->check_result();
 
-  //delete l; // TODO: 
+  //delete l; // TODO:
   return 0;
 }
 
