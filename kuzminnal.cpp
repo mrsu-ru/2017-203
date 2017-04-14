@@ -230,10 +230,10 @@ void kuzminnal::lab5()
  */
 void kuzminnal::lab6()
 {
-	double eps = 1.e-8;
+	double eps = 0.00001;
     double* prev = new double[N];
     double sum = 0;
-    double norm = 0;
+    bool IsContinue = true;
     for(int i = 0; i < N; i++)
     {
         x[i] = 0;
@@ -255,17 +255,18 @@ void kuzminnal::lab6()
                 sum += A[i][j] * prev[j];
             x[i] = (b[i] - sum) / A[i][i];
         }
-		norm = fabs(x[0] - prev[0]);
+        IsContinue = true;
         for(int i = 0; i < N; i++)
-		{
-			if(fabs(x[i] - prev[i]) > norm)
-			{
-				norm = fabs(x[i] - prev[i]);
-			}
-		}
-    } while(norm > eps);
+        {
+            if(fabs(x[i] - prev[i]) < eps)
+            {
+                IsContinue = false;
+                break;
+            }
+        }
+    } while(IsContinue == true);
 
-    delete[] prev;
+    delete[] p;
 }
 
 
