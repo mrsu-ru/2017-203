@@ -67,7 +67,7 @@ void polischukoa::lab2()
         for (int j = i + 1; j < N; j++)
         {
             Q = A[j][i] / A[i][i];
-            for (int k = i; k < n; k++)
+            for (int k = i; k < N; k++)
             {
                 A[j][k] -= Q * A[i][k];
             }
