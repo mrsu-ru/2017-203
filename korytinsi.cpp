@@ -5,10 +5,10 @@
  */
 void korytinsi::lab1()
 {
-double *x, max;
+double max;
   int k;
   const double eps = 0.000000000001;
-  x = new double[N];
+
   k = 0;
 while (k < N)
    {
@@ -46,10 +46,10 @@ for (int i = k; i < N; i++) {
  */
 void korytinsi::lab2()
 {
- double *x, max;
+ double max;
   int k, index;
  const double eps = 0.000000000001;  // точность
-  x = new double[N];
+
   k = 0;
   while (k < N)
     {
@@ -108,9 +108,9 @@ for (int j = 0; j < N; j++) {
  */
 void korytinsi::lab3()
 {
- double *x, max;
+ double max;
   int k;
-   x = new double[N];
+
   k = 0;
 
 
@@ -161,9 +161,9 @@ void korytinsi::lab3()
  */
 void korytinsi::lab4()
 {
-double *x;
 
-x = new double[N];
+
+
   double* AA = new double[N];
     double* B = new double[N];
 int z;
@@ -177,7 +177,7 @@ for(int i=1;i<N;i++)
      B[i] = (-b[i] + A[i][i-1]*B[i-1])/(-A[i][i-1]*AA[i-1]-A[i][i]);
 
     }
-for(int i=N-2;i>=0;i--)
+for(int i=N-1;i>=0;i--)
     x[i]=AA[i]*x[i+1]+B[i];
 
 
@@ -209,6 +209,14 @@ void korytinsi::lab6()
  * Один из градиентных методов
  */
 void korytinsi::lab7()
+{
+
+}
+
+/**
+ * Один из градиентных методов
+ */
+void korytinsi::lab8()
 {
 
 }
