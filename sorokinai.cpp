@@ -192,7 +192,7 @@ void  sorokinai::lab5()
         {
 			s[i] = b[i];
 			for ( j = 0; j < N; j++)
-				if (i != j) p[i] -= A[i][j] * x[j];
+				if (i != j) s[i] -= A[i][j] * x[j];
 			s[i] /= A[i][i];
 		}
         razn = fabs(x[0] - s[0]);
