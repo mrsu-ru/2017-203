@@ -266,7 +266,7 @@ void kuzminnal::lab6()
         }
     } while(IsContinue == true);
 
-    delete[] p;
+    
 }
 
 
