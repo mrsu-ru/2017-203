@@ -34,8 +34,42 @@ void malkinaaa::lab1()
  */
 void malkinaaa::lab2()
 {
-
+	long double m = 0;
+	int index;
+	for (int k = 0; k < N-1; k++)
+			{
+				index = k;
+				for (int i = k + 1; i < N; i++)
+				{
+					if(abs(A[i][k]) > abs(A[index][k]))
+						{
+							index = i;
+						}
+				}
+				std::swap(A[index], A[k]);
+				std::swap(b[index], b[k]);
+				for (int i = k + 1; i < N; i++)
+				 {
+ 					m = A[i][k] / A[k][k];
+  					for (int j = k; j < N; j++)
+					{
+  						A[i][j] -= m * A[k][j];
+  					}
+					 b[i] -= m * b[k];
+				 }
+			}
+			for (int i = 0; i < N; i++)
+				x[i] = b[i];
+			for (int i = N - 1; i >= 0; i--)
+			{
+				for (int j = i + 1; j < N; j++)
+				{
+					 x[i] -= A[i][j] * x[j];
+				}
+				x[i] /= A[i][i];
+			}        
 }
+
 
 
 
@@ -44,7 +78,25 @@ void malkinaaa::lab2()
  */
 void malkinaaa::lab3()
 {
-
+	long double* P = new long double[N];
+	long double* Q = new long double[N];
+	for (int i = 0; i<N; i++)
+		{
+			P[i] = 0;
+			Q[i] = 0;
+		}
+	P[0] = A[0][1]/(-A[0][0]);
+	Q[0] = b[0]/A[0][0];
+	for(int i = 1; i<N; i++)
+		{
+			P[i] = A[i][i+1]/(-A[i][i] - A[i][i-1]*P[i-1]);
+			Q[i] = (-b[i] + A[i][i-1]*Q[i-1])/(-A[i][i]-A[i][i-1]*P[i-1]);
+		}
+	x[N - 1] = Q[N - 1];
+	for(int i = N - 2; i >= 0; i--)
+		x[i] = P[i]*x[i+1] + Q[i];
+	delete[] P;
+	delete[] Q;
 }
 
 
