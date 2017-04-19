@@ -112,7 +112,32 @@ void golovenkomv::lab3()
  */
 void golovenkomv::lab4()
 {
-
+double d[N];
+    for(int i=0;i<N;i++)
+        d[i]=A[i][i];
+    double e[N-1],c[N-1];
+    e[0]=A[0][1];
+    c[N-1]=A[N-1][N-2];
+    for(int i=1;i<N;i++)
+    {
+        e[i]=A[i][i+1];
+        c[i-1]=A[i][i-1];
+    }
+    double al[N-1],bt[N];
+    al[0]=(-1)*e[0]/d[0];
+    bt[0]=b[0]/d[0];
+    for(int i=1;i<N-1;i++)
+    {
+        al[i]=-e[i]/(d[i]+e[i-1]*al[i-1]);
+        bt[i]=(b[i]-c[i-1]*bt[i-1])/(d[i]+c[i-1]*al[i-1]);
+    }
+    bt[N-1] = (b[N-1] - A[N-1][N-2]*bt[N-2])/(A[N-1][N-1] + A[N-1][N-2]*al[N-2]);
+double x[N];
+    x[N-1]=bt[N-1];
+    for(int i=N-2;i>=0;i--)
+    {
+        x[i]=al[i]*x[i+1]+bt[i];
+    }
 }
 
 
