@@ -102,7 +102,58 @@ double koif;
  */
 void golovenkomv::lab3()
 {
+double l[N][N];
+    for(int i=0;i<N;i++)
+    {
+        for(int j=0;j<N;j++)
+        {
+            l[i][j]=0;
+        }
+    }
+    double s=0;///сумма квадратов
+    double x[N],y[N];
 
+    for(int i=0;i<N;i++)
+    {
+        for(int k=0;k<i;k++)
+        {
+            s=s+l[i][k]*l[i][k];
+        }
+        l[i][i]=sqrt(A[i][i]-s);
+        s=0;
+        for(int j=i+1;j<N;j++)
+        {
+            for(int k=0;k<j-1;k++)
+            {
+                s=s+l[j][k]*l[i][k];
+            }
+            l[j][i]=(A[j][i]-s)/l[i][i];
+            s=0;
+        }
+        x[i]=0;
+        y[i]=0;
+    }
+    y[0]=b[0]/l[0][0];
+    double sum=0;///для получения х и у
+    for(int i=1;i<N;i++)
+    {
+        for(int j=0;j<i;j++)
+        {
+            sum=sum+l[i][j]*y[j];
+        }
+        y[i]=(b[i]-sum)/l[i][i];
+        sum=0;
+    }
+    x[N-1]=y[N-1]/l[N-1][N-1];
+    for(int i=N-2;i>=0;i--)
+    {
+        for(int j=i+1;j<N;j++)
+        {
+            sum=sum+l[j][i]*x[j];
+        }
+        x[i]=(y[i]-sum)/l[i][i];
+        sum=0;
+    }
 }
 
 
