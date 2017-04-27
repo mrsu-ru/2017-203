@@ -2,15 +2,21 @@
 #include <cstring>
 #include "lab.h"
 #include <iostream>
+#include "fedotov.h"
 #include "geroevvn.h"
 #include "golovenkomv.h"
 #include "gorbylevako.h"
 #include "hramovaia.h"
 #include "kidyaevvs.h"
 #include "klyushenkovaaa.h"
+#include "korytinsi.h"
+#include "KulyaginaTI.h"
 #include "kurbatovdi.h"
 #include "kuzminnal.h"
+#include "malkinaaa.h"
 #include "mulichevaes.h"
+#include "polischukoa.h"
+#include "ponkratovayv.h"
 #include "sorokinai.h"
 #include "zhuravlevama.h"
 
@@ -27,6 +33,9 @@ int main(int argc, char** argv)
   lab *l = NULL;
   if (strcmp(argv[1], "hramovaia") == 0) {
     l = new hramovaia();
+  }
+  else if (strcmp(argv[1], "fedotovvd") == 0) {
+    l = new fedotov();
   }
   else if (strcmp(argv[1], "kuzminnal") == 0) {
     l = new kuzminnal();
@@ -46,11 +55,26 @@ int main(int argc, char** argv)
   else if (strcmp(argv[1], "klyushenkovaaa") == 0) {
     l = new klyushenkovaa();
   }
+  else if (strcmp(argv[1], "korytinsi") == 0) {
+    l = new korytinsi();
+  }
+  else if (strcmp(argv[1], "kulyaginati") == 0) {
+    l = new KulyaginaTI();
+  }
   else if (strcmp(argv[1], "kurbatovdi") == 0) {
     l = new kurbatovdi();
   }
+  else if (strcmp(argv[1], "malkinaaa") == 0) {
+    l = new malkinaaa();
+  }
   else if (strcmp(argv[1], "mulichevaes") == 0) {
     l = new mulichevaes();
+  }
+  else if (strcmp(argv[1], "polischukoa") == 0) {
+    l = new polischukoa();
+  }
+  else if (strcmp(argv[1], "ponkratovayv") == 0) {
+    l = new ponkratovayv();
   }
   else if (strcmp(argv[1], "sorokinai") == 0) {
     l = new sorokinai();
@@ -69,7 +93,7 @@ int main(int argc, char** argv)
   l->write_result();
   l->check_result();
 
-  delete l;
+  //delete l; // TODO:
   return 0;
 }
 
