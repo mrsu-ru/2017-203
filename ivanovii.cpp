@@ -66,3 +66,9 @@ void ivanovii::lab7()
 {
 
 }
+
+
+void ivanovii::lab8()
+{
+
+}
