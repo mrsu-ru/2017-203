@@ -255,7 +255,7 @@ void fedotov::lab6()
 
     for(int i=0; i<N; i++)
         new_x[i] = D[i];
-
+    ::memset(x, 0, sizeof(double)*N);
     do
     {
         for(int i=0; i<N; i++)
@@ -264,18 +264,19 @@ void fedotov::lab6()
             for(int j=0; j<N; j++)
             {
                 if(j!=i)
-                    S +=  LU[i][j]*new_x[j];
+                    S +=  LU[i][j]*x[j];
             }
             x[i] = (b[i] - S)/D[i];
-            new_x[i] = x[i];
+            //new_x[i] = x[i];
         }
 
         temp = fabs(new_x[0] - x[0]);
 
-        for(int i=1; i<N; i++)
-            if( fabs(new_x[i] - x[i]) > temp )
-                temp = fabs(new_x[i] - x[i]);
-
+        for(int i=1; i<N; i++){
+            //if( fabs(new_x[i] - x[i]) > temp )
+                temp = (new_x[i] - x[i])*(new_x[i] - x[i]);
+        }
+        temp = sqrt(temp);
         for(int i=0; i<N; i++)
             new_x[i] = x[i];
 
