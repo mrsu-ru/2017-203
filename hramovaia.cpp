@@ -155,7 +155,39 @@ void hramovaia::lab4()
  */
 void hramovaia::lab5()
 {
+    double *xold = new double[N];
+    for (int i=0; i<N; i++)
+    {
+        x[i]=0; // начальное приближение
+    }
+    double error=0.0;
+    double eps=1e-20;
+    int k=0;
+    do
+    {
+        k++;
+        error=0.0;
+        for(int i=0; i<N; i++)
+            xold[i]=x[i];
+        for(int i=0; i<N; i++)
+        {
+            double s=0;
+            for(int j=0; j<i; j++)
+                s += A[i][j] * xold[j];
+            for(int j=i+1; j<N; j++)
+                s += A[i][j] * xold[j];
+            x[i]=(b[i] - s)/A[i][i];
+        }
+        error = std::abs(xold[0]-x[0]);
+        for(int i=0; i<N; i++)
+        {
+            if(std::abs(xold[i]-x[i]) > error)
+                error = std::abs(xold[i]-x[i]);
+        }
+    } while(error >= eps);
+    std::cout << "Чило итераций : " << k << std::endl;
 
+    delete [] xold;
 }
 
 
@@ -165,7 +197,39 @@ void hramovaia::lab5()
  */
 void hramovaia::lab6()
 {
+    double *xold = new double[N];
+    for (int i=0; i<N; i++)
+    {
+        x[i]=0; // начальное приближение
+    }
+    double error=0.0;
+    double eps=1e-20;
+    int k=0;
+    do
+    {
+        k++;
+        error=0.0;
+        for(int i=0; i<N; i++)
+            xold[i]=x[i];
+        for(int i=0; i<N; i++)
+        {
+            double s=0;
+            for(int j=0; j<i; j++)
+                s += A[i][j] * x[j];
+            for(int j=i+1; j<N; j++)
+                s += A[i][j] * xold[j];
+            x[i]=(b[i] - s)/A[i][i];
+        }
+        for(int i=0; i<N; i++)
+        {
+            if(std::abs(xold[i]-x[i]) > error)
+                error = std::abs(xold[i]-x[i]);
+        }
 
+    } while(error >= eps);
+    std::cout << "Чило итераций : " << k << std::endl;
+
+    delete [] xold;
 }
 
 
