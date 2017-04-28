@@ -156,7 +156,29 @@ void zhuravlevama::lab4()
  */
 void zhuravlevama::lab5()
 {
+    double* px=new double[N];
+    double eps=0.000000001;
+	double pr=eps;
+	for(int i=0;i<N;i++)x[i]=b[i];
+    do
+      {
+		for(int i=0;i<N;i++)
+           {
+			px[i]=b[i];
+			for(int j=0;j<N;j++)
+			    if(i!=j)
+					px[i]=px[i]-A[i][j]*x[j];
+			px[i]=px[i]/A[i][i];
+           }
+        pr=abs(x[0]-px[0]);
 
+		for(int k=0;k<N;k++)
+            {
+			 if(abs(x[k]-px[k])>pr)
+				pr=abs(x[k]-px[k]);
+			x[k]=px[k];
+		   }
+	 } while(pr>eps);
 }
 
 
@@ -166,6 +188,31 @@ void zhuravlevama::lab5()
  */
 void zhuravlevama::lab6()
 {
+    double* px=new double[N];
+    double eps=0.000000001;
+	double pr=eps;
+	for(int i=0;i<N;i++)x[i]=b[i];
+
+   do
+	{
+		for(int i=0;i<N;i++)
+			px[i]=x[i];
+
+		for(int i=0;i<N; i++)
+		{
+			double temp=0;
+			for(int j=0;j<i;j++)
+				temp=temp+A[i][j]*x[j];
+
+			for (int j=i+1;j<N;j++)
+				temp=temp+A[i][j]*x[j];
+			x[i]=(b[i]-temp)/A[i][i];
+
+			pr=0;
+			for (int i=0;i<N;i++)
+				pr+=(x[i]-px[i])*(x[i]-px[i]);
+		}
+	} while(pr>=eps);
 
 }
 
@@ -188,3 +235,7 @@ void zhuravlevama::lab8()
 {
 
 }
+
+
+
+
