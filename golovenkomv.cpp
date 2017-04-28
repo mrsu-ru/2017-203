@@ -111,7 +111,7 @@ double l[N][N];
         }
     }
     double s=0;///сумма квадратов
-    double x[N],y[N];
+    double y[N];
 
     for(int i=0;i<N;i++)
     {
@@ -183,7 +183,7 @@ double d[N];
         bt[i]=(b[i]-c[i-1]*bt[i-1])/(d[i]+c[i-1]*al[i-1]);
     }
     bt[N-1] = (b[N-1] - A[N-1][N-2]*bt[N-2])/(A[N-1][N-1] + A[N-1][N-2]*al[N-2]);
-double x[N];
+
     x[N-1]=bt[N-1];
     for(int i=N-2;i>=0;i--)
     {
