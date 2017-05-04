@@ -129,7 +129,7 @@ void klyushenkovaa::lab3()
             {
                 for (int k=0; k<j-1; k++)
                     s+=L[j][k]*L[i][k];
-                L[j][i] = (A[j][i]-s)/L[i][i];//matr L
+                L[j][i] = (A[j][i]-s)/L[i][i];//mat L
                 s = 0;
             };
         }
