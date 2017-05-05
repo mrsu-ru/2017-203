@@ -34,4 +34,7 @@ class gorbylevako : public lab
 
   virtual void lab8();
 
+  void MatrVect(double **M, double *V, double *R);
+  double ScalarVect(double* v1, double* v2);
+
 };
