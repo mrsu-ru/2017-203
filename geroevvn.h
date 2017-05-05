@@ -31,10 +31,16 @@ class geroevvn : public lab
    * Один из градиентных методов
    */
   virtual void lab7();
-  
+
   virtual void lab8();
-  
+
   virtual std::string get_name();
-   
+
   int sign(double);
+
+  void get_Rk(double*,double*);
+
+  void get_Uk(double*,double*);
+
+  double scalar_product(double*,double*);
 };
