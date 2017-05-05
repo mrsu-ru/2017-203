@@ -212,7 +212,7 @@ void zhuravlevama::lab6()
 			for (int i=0;i<N;i++)
 				pr+=(x[i]-px[i])*(x[i]-px[i]);
 		}
-	} while(pr>=eps);
+	} while(sqrt(pr)>=eps);
 
 }
 
