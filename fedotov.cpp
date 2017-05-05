@@ -178,7 +178,10 @@ void fedotov::lab3()
     for(int i=0; i<N; i++)
         delete L[i];
 
+
+    for(int i=0; i<N; i++)
     delete [] y;
+
 }
 
 
