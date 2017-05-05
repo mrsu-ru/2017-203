@@ -386,9 +386,92 @@ void geroevvn::lab6()
 /**
  * Один из градиентных методов
  */
+void geroevvn::get_Rk(double* r,double* y){
+
+    double temp;
+
+    for(int i = 0; i < N; i++)
+     {
+      temp = 0;
+      for(int j = 0; j < N; j++)
+        {
+            temp += A[i][j]*y[j];
+        }
+       r[i] = temp - b[i];
+     }
+}
+
+void geroevvn::get_Uk(double* r,double* u){
+
+    double temp;
+
+     for(int i = 0; i < N; i++)
+     {
+      temp = 0;
+      for(int j = 0; j < N; j++)
+        {
+            temp += A[i][j]*r[j];
+        }
+       u[i] = temp;
+     }
+}
+
+double geroevvn::scalar_product(double* u,double* r){
+
+    double temp = 0;
+
+        for(int i = 0; i < N;i++)
+            temp += u[i]*r[i];
+
+    return temp;
+}
+
 void geroevvn::lab7()
 {
+    const double eps = 1E-15;
 
+    double* r = new double[N];
+    double* y_old = new double[N];
+    double* y_new = new double[N];
+    double* temp = new double[N];
+    double* u = new double[N];
+    int i;
+
+        for(i = 0; i < N; i++)
+            y_new[i] = A[i][i];
+
+    double tau;
+
+    do{
+       for(i = 0; i < N; i++)
+          {
+            y_old[i] = y_new[i];
+          }
+
+      get_Rk(r,y_old);
+      get_Uk(r,u);
+      tau = scalar_product(u,r)/scalar_product(u,u);
+
+        for(i = 0; i < N; i++)
+          {
+            y_new[i] -= tau*r[i];
+          }
+
+        for(i = 0; i < N; i++)
+          {
+            temp[i] = y_new[i] - y_old[i];
+          }
+
+    }while(sqrt(scalar_product(temp,temp)) >= eps);
+
+    for(i = 0; i < N; i++)
+        x[i] = y_new[i];
+
+    delete [] y_old;
+    delete [] y_new;
+    delete [] r;
+    delete [] temp;
+    delete [] u;
 }
 
 /**
