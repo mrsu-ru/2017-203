@@ -1,7 +1,7 @@
 #pragma once
 #include "lab.h"
 
-class gorbylevako : public lab
+class ivanovii : public lab
 {
   /**
    * Метод Гаусса
@@ -33,8 +33,5 @@ class gorbylevako : public lab
   virtual void lab7();
 
   virtual void lab8();
-
-  void MatrVect(double **M, double *V, double *R);
-  double ScalarVect(double* v1, double* v2);
 
 };

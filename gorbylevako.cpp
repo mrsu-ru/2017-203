@@ -310,8 +310,8 @@ void gorbylevako::lab7()
 
         for(int i=0; i<N; i++)
         {
-            if(fabs(X[i]-TempX[i]) > p)
-                p = fabs(X[i]-TempX[i]);
+            if(fabs(x[i]-TempX[i]) > p)
+                p = fabs(x[i]-TempX[i]);
             TempX[i] = x[i];
         }
         count++;
