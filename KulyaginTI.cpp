@@ -157,12 +157,64 @@ void KulyaginaTI::lab4()
 
 void KulyaginaTI::lab5()
 {
+	double eps = 0.0001;
+    double* B = new double[N];
+    double norma;
+
+    do 
+	{
+        for (int i = 0; i < N; i++) {
+            B[i] = b[i];
+            for (int j = 0; j < N; j++) {
+                if (i != j)
+                    B[i] -= A[i][j] * x[j];
+            }
+            B[i] /= A[i][i];
+        }
+        norma = abs(x[0] - B[0]);
+        for (int j = 0; j < N; j++) {
+            if (abs(x[j] - B[j]) > norma)
+                norma = abs(x[j] - B[j]);
+            x[j] = B[j];
+        }
+    } while (norma >= eps);
+    delete[] B;
 
 }
 
 
 void KulyaginaTI::lab6()
 {
+	    double eps = 0.0001;
+    double* y = new double[N];
+    double norma = 0;
+     
+    for (int i = 0; i < N; i++)
+        x[i] = 0; 
+    do
+    {
+        for (int i = 0; i < N; i++)
+            y[i] = x[i]; 
+
+        for (int i = 0; i < N; i++)
+        {
+            double tmp = 0;
+            norma = 0;
+            
+            for (int j = 0; j < i; j++)
+                tmp += (A[i][j] * x[j]);
+            
+            for (int j = i + 1; j < N; j++)
+                tmp += (A[i][j] * x[j]);
+            
+            x[i] = (b[i] - tmp) / A[i][i];
+            
+            for (int i = 0; i < N; i++)
+                norma += abs(x[i] - y[i]);
+        }
+    } while (norma >= eps);
+
+    delete[] y;
 
 }
 
