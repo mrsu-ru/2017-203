@@ -195,6 +195,7 @@ void gorbylevako::lab5()
 		}
 
 		r = abs(x[0] - y[0]);
+
 		for(int i=0; i<N; i++)
 		{
 			if(abs(x[i]-y[i]) > r)
@@ -309,8 +310,8 @@ void gorbylevako::lab7()
 
         for(int i=0; i<N; i++)
         {
-            if(fabs(X[i]-TempX[i]) > p)
-                p = fabs(X[i]-TempX[i]);
+            if(fabs(x[i]-TempX[i]) > p)
+                p = fabs(x[i]-TempX[i]);
             TempX[i] = x[i];
         }
         count++;
@@ -319,4 +320,12 @@ void gorbylevako::lab7()
     delete[] U;
     delete[] r;
     delete[] TempX;
+}
+
+/**
+ * Один из градиентных методов
+ */
+void gorbylevako::lab8()
+{
+
 }
