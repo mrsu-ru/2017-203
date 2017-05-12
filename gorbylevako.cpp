@@ -275,14 +275,14 @@ double gorbylevako::ScalarVect(double* v1, double* v2)
 
 void gorbylevako::lab7()
 {
-    const double eps = 10E-20;
+    const double eps = 1.e-6;
 
     int count = 0; ///  количество итераций
     double *U = new double [N];
     double *r = new double [N];
     double *TempX = new double[N];
     double *p = new double[N];
-    Tau = 0.0;
+    double Tau = 0.0;
 
     for (int i=0; i<N; i++)
         TempX[i]=0; /// первое приближение задаём нулевым
@@ -311,7 +311,7 @@ void gorbylevako::lab7()
             p[i] = x[i]-TempX[i];
 
         count++;
-    } while (sqrt(ScalarVect(p, p)) >= eps);
+    } while ((sqrt(ScalarVect(p, p)) >= eps) && (count < 500000));
 
     delete[] U;
     delete[] r;
