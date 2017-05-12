@@ -162,7 +162,7 @@ void kurbatovdi::lab4()
  */
 void kurbatovdi::lab5()
 {
-	long double eps = 0.0001;
+	long double eps = 1.e-9;
     long double* p = new long double[N];
 	long double norm;
     for (int i = 0; i < N; i++)
