@@ -281,7 +281,8 @@ void gorbylevako::lab7()
     double *U = new double [N];
     double *r = new double [N];
     double *TempX = new double[N];
-    double p = 0.0, Tau = 0.0;
+    double *p = new double[N];
+    Tau = 0.0;
 
     for (int i=0; i<N; i++)
         TempX[i]=0; /// первое приближение задаём нулевым
@@ -304,21 +305,17 @@ void gorbylevako::lab7()
         Tau = TempTau1/TempTau2; /// Итерационный параметр
 
         for(int i=0; i<N; i++)
-            x[i] = TempX[i]-Tau*r[i];
-
-        p = fabs(x[0]-TempX[0]);
+            x[i] = TempX[i] - Tau*r[i];
 
         for(int i=0; i<N; i++)
-        {
-            if(fabs(x[i]-TempX[i]) > p)
-                p = fabs(x[i]-TempX[i]);
-            TempX[i] = x[i];
-        }
+            p[i] = x[i]-TempX[i];
+
         count++;
-    } while (p >= eps);
+    } while (sqrt(ScalarVect(p, p)) >= eps);
 
     delete[] U;
     delete[] r;
+    delete[] p;
     delete[] TempX;
 }
 
