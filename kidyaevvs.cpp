@@ -205,7 +205,7 @@ void kidyaevvs::lab4()
  */
 void kidyaevvs::lab5()
 {
-    double Eps = 0.0001;
+    double Eps = 1.e-9;
     double* temp_x = new double[N];
     double norm;
 
@@ -253,7 +253,7 @@ void kidyaevvs::lab5()
  */
 void kidyaevvs::lab6()
 {
-    double eps = 0.0001;
+    double eps = 1.e-9;
     double* y = new double[N];
     double norm = 0;
     double temp = 0;
