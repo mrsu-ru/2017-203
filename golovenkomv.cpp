@@ -198,7 +198,40 @@ double x[N];
  */
 void golovenkomv::lab5()
 {
-
+double eps = 1.e-10;
+double nx[N];
+double razn = 0;
+int flag=1;
+	for(int i = 0; i < N; i++)
+	{
+		x[i] = 0;
+	}
+	do
+	{
+		for(int i = 0; i < N; i++)
+		{
+			nx[i] = b[i];
+			for(int j = 0; j < N; j++)
+			{
+				if(i != j)
+				{
+					nx[i] = nx[i] - A[i][j] * x[j];
+				}
+			}
+			nx[i] = nx[i]/(A[i][i]);
+		}
+		razn = fabs( nx[0] - x[0] );
+		for(int i = 0; i < N; i++)
+		{
+			if(fabs(nx[i] - x[i]) > razn)
+			{
+				razn = fabs(nx[i] - x[i]);
+			}
+			x[i] = nx[i];
+		}
+		if(razn < eps)
+            flag=0;
+	} while(flag==1);
 }
 
 
@@ -208,7 +241,41 @@ void golovenkomv::lab5()
  */
 void golovenkomv::lab6()
 {
-
+double eps = 1.e-10;
+double px[N];
+double sum = 0;
+int flag = 1;
+    for(int i = 0; i < N; i++)
+    {
+        x[i] = 0;
+    }
+    do
+    {
+        for(int i = 0; i < N; i++)
+        {
+            px[i] = x[i];
+        }
+        for(int i = 0; i < N; i++)
+        {
+            sum = 0;
+            for(int j = 0; j < i; j++)
+            {
+                sum =sum + A[i][j] * x[j];
+            }
+            for(int j = i+1; j < N; j++)
+                sum =sum + A[i][j] * px[j];
+            x[i] = (b[i] - sum) / A[i][i];
+        }
+        flag = 1;
+        for(int i = 0; i < N; i++)
+        {
+            if(fabs(x[i] - px[i]) < eps)
+            {
+                flag = 0;
+                break;
+            }
+        }
+    } while(flag == 1);
 }
 
 
