@@ -158,6 +158,29 @@ void Doseikin::lab4()
 void Doseikin::lab5()
 {
 
+double eps = 0.01; 
+   double* B = new double[N]; 
+   double norma; 
+
+ 
+    do  
+ 	{ 
+         for (int i = 0; i < N; i++) { 
+           B[i] = b[i]; 
+             for (int j = 0; j < N; j++) { 
+              if (i != j) 
+                   B[i] -= A[i][j] * x[j]; 
+             } 
+           B[i] /= A[i][i]; 
+       } 
+      norma = abs(x[0] - B[0]); 
+         for (int j = 0; j < N; j++) { 
+           if (abs(x[j] - B[j]) > norma) 
+              norma = abs(x[j] - B[j]); 
+         x[j] = B[j]; 
+     } 
+   } while (norma >= eps); 
+  delete[] B; 
 }
 
 
